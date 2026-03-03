@@ -52,9 +52,6 @@ class SettingsBase {
         // таймаут ожидания ответа сервера, мс
         uint16_t requestTout = 2000;
 
-        // таймаут попапа, мс
-        uint16_t popupTout = 4100;
-
         // период обновлений, мс. 0 чтобы отключить
         uint16_t updateTout = 2500;
 
@@ -171,10 +168,6 @@ class SettingsBase {
         config.updateTout = prd;
     }
 
-    // установить таймаут попапа (умолч. 4500мс)
-    void setPopupTimeout(uint16_t tout) {
-        config.popupTout = tout;
-    }
 
 // подключить базу данных
 #ifndef SETT_NO_DB
@@ -547,7 +540,6 @@ class SettingsBase {
             p[Code::update_tout] = config.updateTout;
             p[Code::ping_tout] = config.pingTout;
             p[Code::request_tout] = config.requestTout;
-            p[Code::popup_tout] = config.popupTout;
             p[Code::send_tout] = config.sliderTout;
             p[Code::use_fs] = config.useFS;
             p[Code::color] = (uint32_t)config.theme;
