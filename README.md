@@ -203,7 +203,7 @@ sett.onFileRemove([](Text file_name) {
 > для отображения обновления по ота имеет смысл использовать `onUpdateFWStart` и `onUpdateFWDone`
 
 
-<h3 id="delprogect" >✅ Убрано слово проект в информации о проекте </h3>
+<h3 id="delproject" >✅ Убрано слово проект в информации о проекте </h3>
 
 ```cpp
 
