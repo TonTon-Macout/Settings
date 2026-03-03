@@ -52,6 +52,9 @@ class SettingsBase {
         // таймаут ожидания ответа сервера, мс
         uint16_t requestTout = 2000;
 
+        // таймаут попапа, мс
+        uint16_t popupTout = 4100;
+
         // период обновлений, мс. 0 чтобы отключить
         uint16_t updateTout = 2500;
 
@@ -166,6 +169,11 @@ class SettingsBase {
     // установить период обновлений (умолч. 2500мс), 0 чтобы отключить
     void setUpdatePeriod(uint16_t prd) {
         config.updateTout = prd;
+    }
+
+    // установить таймаут попапа (умолч. 4500мс)
+    void setPopupTimeout(uint16_t tout) {
+        config.popupTout = tout;
     }
 
 // подключить базу данных
