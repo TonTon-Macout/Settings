@@ -41,6 +41,14 @@
 
 ## Изменения
 
+для установки: 
+- скачать положить в папку библиотек
+- подключить в платформио
+  ```cpp
+    lib_deps = 
+    https://github.com/TonTon-Macout/Settings.git#main
+  ```
+
 ### ✅ Всплывающие подсказки
 
 <img width="635" height="133" alt="Снимок экрана 2026-03-03 173108" src="https://github.com/user-attachments/assets/35b9a0ed-320b-4291-a0f0-dfb1e6aae3b8" />
