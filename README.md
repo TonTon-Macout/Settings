@@ -42,6 +42,10 @@
 ## Изменения
 
 ### ✅ Всплывающие подсказки
+
+<img width="635" height="133" alt="Снимок экрана 2026-03-03 173108" src="https://github.com/user-attachments/assets/35b9a0ed-320b-4291-a0f0-dfb1e6aae3b8" />
+
+
 Теперь нужно передавать текст всплывающих подсказок практически во все виджеты:
 
 ```cpp
@@ -63,9 +67,11 @@ b.Time(123, "", "время начала выжных дел", &start_mute); // 
 
 
 ### ✅ ID Виджетов
-Теперь если вы указали id виджета то этот же id будет использоваться в веб интерфейса
-
+Теперь если вы указали id виджета то этот же id будет использоваться в веб интерфейсе <br>
+Если выказали например `123` в качестве id, то id элемента будет `id_123` <br>
 Это существенно упростит подбор CSS селекторов.
+
+Вот как это может выглядеть:
 ```cpp
 // указываем id `123`, Лейбл - `mode`, подсказку - `режим работы`
 if (b.Select(123, "mode", "режим работы", "0;1;2;3;4;5", &mode))  b.reload(); 
@@ -97,9 +103,13 @@ if (b.Select(123, "mode", "режим работы", "0;1;2;3;4;5", &mode))  b.r
     letter-spacing: 0.5px;  
 }
 ```
+<img width="697" height="79" alt="Снимок экрана 2026-03-03 173045" src="https://github.com/user-attachments/assets/bb9aafc0-7c38-4be4-8e51-75bbe16d2f52" />
 
-### ✅ ID Виджетов
+
+### ✅ Подключение своих файлов CSS стилей и JavaScrypt`a
 Теперь есть возможность подключить свои файлы CSS стилей и свой JavaScrypt
+Работает только с версией  `SettingsGyver.h`  возможно и с `SettingsGyverWS.h`. 
+С версией `SettingsESP.h` и подобными работать не будет. 
 
 1. Перед подключением библиотеки дефайним
 ```cpp
@@ -129,6 +139,53 @@ const char  mystyle[] PROGMEM = R"rawliteral(
 
 )rawliteral";
 ```
+
+### ✅ Принят пуллреквест от [VitaliyAndreevich](https://github.com/GyverLibs/Settings/pull/57) 
+Он добавляет колбеки ота обновления 
+
+```cpp
+sett.onUpdateFWStart([]() {
+  Serial.printf("Update started\n\r");
+});
+
+sett.onUpdateFWProgress([](size_t current, size_t final) {
+  size_t progress= (100 * current) / final;
+  Serial.printf("update %d\n\r", progress);
+});
+
+sett.onUpdateFWDone([](bool res) {
+  Serial.printf("Update done. res = %d\n\r", res);
+});
+
+sett.onFileRemove([](Text file_name) {
+  Serial.printf("Remove file <%s>\n\r", file_name.toString().c_str());
+});
+```
+
+Работает с версией  `SettingsESP.h` и `SettingsGyver.h`
+
+> в onUpdateFWProgress смысла нет. рассчитывается не верно.
+> 
+> для отображения обновления по ота имеет смысл использовать `onUpdateFWStart` и `onUpdateFWDone`
+
+### ✅ Убрано слово проект в информации о проекте
+
+```cpp
+ sett.setProjectInfo("Очередная погодная станция</br>без погоды но зато своя</br> Серийный номер: " SERIAL_NUMBER "</br>");
+```
+<img width="484" height="182" alt="Снимок экрана 2026-03-03 180033" src="https://github.com/user-attachments/assets/6539921e-12ed-402f-a1a4-62a25e4a4ada" />
+
+
+### ✅ Чутка подвинул название группы 
+было
+
+<img width="620" height="111" alt="Снимок экрана 2026-03-03 181009" src="https://github.com/user-attachments/assets/060a5d89-1030-4cda-80c8-b7978184c3a1" />
+
+стало 
+
+<img width="630" height="115" alt="Снимок экрана 2026-03-03 181000" src="https://github.com/user-attachments/assets/4210e26f-6e9b-4896-aa4c-dd5f282bda61" />
+
+
 
 ## Совместимость
 ESP8266, ESP32
