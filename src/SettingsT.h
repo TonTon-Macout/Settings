@@ -81,16 +81,30 @@ class SettingsT : public sets::SettingsBase {
                     }
                     break;
 
-                case SH("/ota"):
-                    if (authenticate(req.param("auth").toInt32HEX())) {
-                        if (sets::beginOta() && req.body().writeTo(Update) && Update.end(true) && !Update.hasError()) {
-                            server.send(200);
-                            restart();
-                        } else server.send(500);
-                    } else {
+               case SH("/ota"):{
+                    if (!authenticate(req.param("auth").toInt32HEX())) {
                         server.send(401);
+                        break;
                     }
-                    break;
+                    if (!sets::beginOta()) {
+                        server.send(500);
+                        break;
+                    }
+                    if (_onStart) _onStart();
+                    size_t written = req.body().writeTo(Update);
+                    //size_t maxSketch = sets::OtaGetMaxSize();
+                    if (_onProgress) {
+                        _onProgress(written, 0);  
+                    }
+                    bool success = Update.end(true) && !Update.hasError();
+                    if (_onDone) _onDone(success);
+                    if (success) {
+                        server.send(200);
+                        restart();
+                    } else {
+                        server.send(500);
+                    }
+                    } break;
 
                 case SH("/script.js"):
                     server.sendFile_P(settings_script_gz, sizeof(settings_script_gz), "text/javascript", true, true);
