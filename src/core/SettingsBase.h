@@ -547,6 +547,7 @@ class SettingsBase {
             p[Code::update_tout] = config.updateTout;
             p[Code::ping_tout] = config.pingTout;
             p[Code::request_tout] = config.requestTout;
+            p[Code::popupTout] = config.popupTout;
             p[Code::send_tout] = config.sliderTout;
             p[Code::use_fs] = config.useFS;
             p[Code::color] = (uint32_t)config.theme;
