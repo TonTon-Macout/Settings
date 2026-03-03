@@ -56,7 +56,7 @@
 4. [Пуллреквест от [VitaliyAndreevich]  ↓](#pull)
 5. [Убрано слово проект  ↓](#delproject)
 6. [название группы  ↓](#margingroup)
-7. [название группы  ↓](#margingroup)
+
 
 
 <h3 id="tooltip" >✅ Всплывающие подсказки</h3>
