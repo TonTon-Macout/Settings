@@ -10,6 +10,14 @@
 #include "./core/ota.h"
 #include "./web/settings.h"
 
+#ifdef USE_MYFILE
+#include "myScrypt.h"
+#include "myStyle.h"
+#if defined(USE_MYFONT)
+#include "myFont.h"
+#endif
+#endif
+
 template <typename server_t, typename client_t>
 class SettingsT : public sets::SettingsBase {
    public:
@@ -31,6 +39,15 @@ class SettingsT : public sets::SettingsBase {
 
         server.onRequest([this](ghttp::ServerBase::Request req) {
             switch (req.path().hash()) {
+               
+                #ifdef USE_MYFILE
+                case SH("/myscript.js"): server.sendFile_P(myscript, sizeof(myscript)-1, "text/javascript", false);  break;
+                case SH("/mystyle.css"): server.sendFile_P(mystyle, "text/css", false);  break;
+                #if defined(USE_MYFONT)
+                case SH("/dot.woff2"):   server.sendFile_P(myfont, sizeof(myfont), "font/woff2", false, false);  break;
+                #endif
+                #endif
+               
                 case SH("/settings"):
                     parse(req.param("auth").toInt32HEX(),
                           req.param("action").hash(),
