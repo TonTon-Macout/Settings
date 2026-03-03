@@ -30,6 +30,7 @@ enum class Code : uint8_t {
     custom_hash,
 
     label,
+    title_label,
     title,
     text,
     value,
