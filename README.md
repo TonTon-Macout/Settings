@@ -41,7 +41,7 @@
 
 ## Изменения
 
-### Всплывающие подсказки
+### ✅ Всплывающие подсказки
 Теперь нужно передавать текст всплывающих подсказок практически во все виджеты:
 
 ```cpp
@@ -62,17 +62,18 @@ b.Time(123, "", "время начала выжных дел", &start_mute); // 
 > Передавать подсказку нужно всегда, если подсказка не нужна то передавать следует `""`
 
 
-### ID Виджетов
+### ✅ ID Виджетов
 Теперь если вы указали id виджета то этот же id будет использоваться в веб интерфейса
-Это существенно упростит подбор CSS селекторов. 
 
+Это существенно упростит подбор CSS селекторов.
 ```cpp
-if (b.Select(123, "mode", "режим работы", "0;1;2;3;4;5", &mode))  b.reload(); // указываем id `123`, Лейбл - `mode`, подсказку - `режим работы`
+// указываем id `123`, Лейбл - `mode`, подсказку - `режим работы`
+if (b.Select(123, "mode", "режим работы", "0;1;2;3;4;5", &mode))  b.reload(); 
 ```
-а вот так будет выглядеть хтмл разметка:
 
+а вот так будет выглядеть хтмл разметка:
 ```html
-<div class="widget" id="123">
+<div class="widget" id="id_123">
     <div class="widget_row">
         <div>
             <label class="widget_label" data-tooltip="режим работы">mode</label>
@@ -86,10 +87,48 @@ if (b.Select(123, "mode", "режим работы", "0;1;2;3;4;5", &mode))  b.r
 </div>
 ```
 
+а вот текст лейбла мы сделали жирным, красным и капсом
+```css
+#id_123 .widget_label {
+    color: #ff0000;        
+    font-weight: bold;    
+    font-size: 16px;       
+    text-transform: uppercase; 
+    letter-spacing: 0.5px;  
+}
+```
 
+### ✅ ID Виджетов
+Теперь есть возможность подключить свои файлы CSS стилей и свой JavaScrypt
 
+1. Перед подключением библиотеки дефайним
+```cpp
+#define USE_MYFILE
+#include <SettingsGyver.h>
+```
 
+2. рядом с основным файлом программы кладем два файла: `myScrypt.h` и `myStyle.h `
+3. со следующим содержанием
+   
+myScrypt.h
+```cpp
+#pragma once
+#include <Arduino.h>
+const uint8_t myscript[] PROGMEM = R"rawliteral(
+// тут ваш JavaScrypt
 
+)rawliteral";
+```
+
+myStyle.h
+```cpp
+#pragma once
+#include <Arduino.h>
+const char  mystyle[] PROGMEM = R"rawliteral(
+/* а тут ваш CSS */
+
+)rawliteral";
+```
 
 ## Совместимость
 ESP8266, ESP32
