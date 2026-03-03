@@ -48,9 +48,18 @@
     lib_deps = 
     https://github.com/TonTon-Macout/Settings.git#main
   ```
+  
+###
+ [Всплывающие подсказки  ↓](#tooltip)
+ [ID Виджетов  ↓](#widgetid)
+ [Подключение своих файлов CSS стилей и JavaScrypt`a  ↓](#attachfile)
+ [Пуллреквест от [VitaliyAndreevich]  ↓](#pull)
+ [Убрано слово проект  ↓](#delproject)
+ [название группы  ↓](#margingroup)
+ [название группы  ↓](#margingroup)
 
 
-### ✅ Всплывающие подсказки
+<h3 id="tooltip" >✅ Всплывающие подсказки</h3>
 
 <img width="635" height="133" alt="Снимок экрана 2026-03-03 173108" src="https://github.com/user-attachments/assets/35b9a0ed-320b-4291-a0f0-dfb1e6aae3b8" />
 
@@ -86,7 +95,8 @@ b\.(?!HTML|Button)([A-Za-z]+)\(\s*"([^"]*)"\s*,
 b.$1("$2", "",
 ```
 
-### ✅ ID Виджетов
+
+<h3 id="widgetid" >✅ ID Виджетов</h3>
 Теперь если вы указали id виджета то этот же id будет использоваться в веб интерфейсе <br>
 Если указали например `123` в качестве id, то id элемента будет `id_123` <br>
 Это существенно упростит подбор CSS селекторов.
@@ -126,7 +136,8 @@ if (b.Select(123, "mode", "режим работы", "0;1;2;3;4;5", &mode))  b.r
 <img width="697" height="79" alt="Снимок экрана 2026-03-03 173045" src="https://github.com/user-attachments/assets/bb9aafc0-7c38-4be4-8e51-75bbe16d2f52" />
 
 
-### ✅ Подключение своих файлов CSS стилей и JavaScrypt`a
+
+<h3 id="attachfile" >✅ Подключение своих файлов CSS стилей и JavaScrypt`a</h3>
 Теперь есть возможность подключить свои файлы CSS стилей и свой JavaScrypt
 
 Работает только с версией  `SettingsGyver.h`  возможно и с `SettingsGyverWS.h`. 
@@ -162,7 +173,8 @@ const char  mystyle[] PROGMEM = R"rawliteral(
 )rawliteral";
 ```
 
-### ✅ Принят пуллреквест от [VitaliyAndreevich](https://github.com/GyverLibs/Settings/pull/57) 
+
+<h3 id="pull" >✅ Принят пуллреквест от [VitaliyAndreevich](https://github.com/GyverLibs/Settings/pull/57) </h3>
 Он добавляет колбеки ота обновления 
 
 ```cpp
@@ -190,15 +202,21 @@ sett.onFileRemove([](Text file_name) {
 > 
 > для отображения обновления по ота имеет смысл использовать `onUpdateFWStart` и `onUpdateFWDone`
 
-### ✅ Убрано слово проект в информации о проекте
+
+<h3 id="delprogect" >✅ Убрано слово проект в информации о проекте </h3>
 
 ```cpp
+
  sett.setProjectInfo("Очередная погодная станция</br>без погоды но зато своя</br> Серийный номер: " SERIAL_NUMBER "</br>");
+ 
 ```
+
 <img width="484" height="182" alt="Снимок экрана 2026-03-03 180033" src="https://github.com/user-attachments/assets/6539921e-12ed-402f-a1a4-62a25e4a4ada" />
 
 
-### ✅ Чутка подвинул название группы 
+
+<h3 id="margingroup" >✅ Чутка подвинул название группы </h3>
+
 было
 
 <img width="620" height="111" alt="Снимок экрана 2026-03-03 181009" src="https://github.com/user-attachments/assets/060a5d89-1030-4cda-80c8-b7978184c3a1" />
