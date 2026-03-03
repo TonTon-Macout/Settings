@@ -50,13 +50,13 @@
   ```
   
 ###
- [Всплывающие подсказки  ↓](#tooltip)
- [ID Виджетов  ↓](#widgetid)
- [Подключение своих файлов CSS стилей и JavaScrypt`a  ↓](#attachfile)
- [Пуллреквест от [VitaliyAndreevich]  ↓](#pull)
- [Убрано слово проект  ↓](#delproject)
- [название группы  ↓](#margingroup)
- [название группы  ↓](#margingroup)
+1. [Всплывающие подсказки  ↓](#tooltip)
+2. [ID Виджетов  ↓](#widgetid)
+3. [Подключение своих файлов CSS стилей и JavaScrypt`a  ↓](#attachfile)
+4. [Пуллреквест от [VitaliyAndreevich]  ↓](#pull)
+5. [Убрано слово проект  ↓](#delproject)
+6. [название группы  ↓](#margingroup)
+7. [название группы  ↓](#margingroup)
 
 
 <h3 id="tooltip" >✅ Всплывающие подсказки</h3>
