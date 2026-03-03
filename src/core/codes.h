@@ -20,6 +20,7 @@ enum class Code : uint8_t {
     ping_tout,
     send_tout,
     request_tout,
+    popupTout,
     granted,
     fs,
     error,
