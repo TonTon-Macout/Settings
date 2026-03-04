@@ -220,6 +220,7 @@ void setup() {
 
     // настройки вебморды
     // sett.config.requestTout = 3000;
+    // sett.config.popupTout = 5000;
     // sett.config.sliderTout = 500;
     // sett.config.updateTout = 1000;
     // sett.config.theme = sets::Colors::Green;
