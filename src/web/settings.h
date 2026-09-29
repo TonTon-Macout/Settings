@@ -9,11 +9,11 @@
     icon: 402 bytes
     total: 27.61 kB
     
-    Build: Tue Sep 29 2026 20:43:40 GMT+0300 (Москва, стандартное время)
+    Build: Tue Sep 29 2026 21:42:41 GMT+0300 (Москва, стандартное время)
 */
 
 #define SETTINGS_VER "1.4.3"
-#define MODE_VER "0.2.1"
+#define MODE_VER "0.2.2"
 
 const uint8_t settings_index_gz[] PROGMEM = {
     0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0a, 0x75, 0x51, 0x41, 0x6e, 0xc2, 0x30, 0x10, 0xfc, 0x8a, 0xbb, 0xd7, 0x02, 0x01, 0x09, 
