@@ -1,6 +1,6 @@
 #pragma once
 #include <Arduino.h>
-#include <StringUtils.h>
+#include <StringUtilsGyver.h>
 
 namespace sets {
 
@@ -40,6 +40,10 @@ class Build {
     // тип - действие (обработка клика или значения)
     bool isAction() {
         return type == Type::Set;
+    }
+    
+    bool isMenu() {
+        return type == Type::Menu;
     }
 };
 
