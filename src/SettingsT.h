@@ -44,7 +44,7 @@ class SettingsT : public sets::SettingsBase {
                 case SH("/myscript.js"): server.sendFile_P(myscript, sizeof(myscript)-1, "text/javascript", false);  break;
                 case SH("/mystyle.css"): server.sendFile_P(mystyle, "text/css", false);  break;
                 #if defined(USE_MYFONT)
-                case SH("/dot.woff2"):   server.sendFile_P(myfont, sizeof(myfont), "font/woff2", false, false);  break;
+                case SH("/myfont.woff2"):   server.sendFile_P(myfont, sizeof(myfont), "font/woff2", true, false);  break;
                 #endif
                 #endif
                
