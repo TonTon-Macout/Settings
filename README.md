@@ -292,7 +292,7 @@ const uint8_t myfont[] PROGMEM  = {
 /*подключаем шрифт*/
 @font-face {
     font-family: 'myfont';
-    src: url('myfont.woff2') format('woff2')
+    src: url('myfont.woff2?v=1') format('woff2')
 }
 /*применяем шрифт*/
 div.input_cont > div > span {
