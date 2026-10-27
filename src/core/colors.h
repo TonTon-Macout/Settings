@@ -15,7 +15,7 @@ enum class Colors : uint32_t {
     Green = 0x37A93C,
     Mint = 0x25b18f,
     Aqua = 0x2ba1cd,
-    Blue = 0x297bcd,
+    Blue = 0x086090,
     Violet = 0x825ae7,
     Pink = 0xc8589a,
     Default = SETS_DEFAULT_COLOR,
