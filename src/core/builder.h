@@ -16,6 +16,7 @@
 
 #define _NO_ID ((size_t)(-1))
 
+
 namespace sets {
 
 enum class DivType : uint8_t {
@@ -653,22 +654,13 @@ class Builder {
         return ButtonHold(_next(), label, (uint32_t)color);
     }
 
-// Окно подтверждения. Для активации отправь пустой update на его id
-// или update с текстом подтверждения.
-bool Confirm(
-    size_t id,
-    Text label = "",
-    Text title_label = "",
-    sets::Colors color = sets::Colors::Default,
-    bool* ptr = nullptr
-) {
-    _widget(Code::confirm, id, label, title_label, nullptr, (uint32_t)color);
-    return _isSet(id, ptr);
-}
+    // misc
+    // окно подтверждения, для активации отправь пустой update на его id или update с текстом подтверждения
+    bool Confirm(size_t id, Text label = "", Text title_label = "", bool* ptr = nullptr) {
+        _widget(Code::confirm, id, label, title_label);
+        return _isSet(id, ptr);
+    }
 
-bool Confirm(size_t id, Text label, Text title_label, bool* ptr) {
-    return Confirm(id, label, title_label, sets::Colors::Default, ptr);
-}
     // ================= CUSTOM =================
     // кастомный виджет, type соответствует имени класса. params - ключи и значения
     bool Custom(Text type, size_t id, const BSON& params = BSON(), AnyPtr value = nullptr) {
