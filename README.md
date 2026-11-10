@@ -311,7 +311,7 @@ div.input_cont > div > span {
 > скопировать получившийся массив в myFont.h
 > 
 
-<h3 id="confirm" >✅ Виджет Confirm теперь можно сделать модальным окном</h3>
+<h3 id="confirm" >✅ Виджет Confirm теперь можно сделать окном с заголовком</h3>
 
 <img width="477" height="164" alt="Снимок экрана 2026-11-10 140750" src="https://github.com/user-attachments/assets/7182726d-b273-47c9-bf8f-684689beba52" />
 
@@ -322,11 +322,11 @@ div.input_cont > div > span {
     }
 ```
 
-А так Confirm - модальное окно 
+А так Confirm - окно с заголовком
 
 <img width="533" height="242" alt="Снимок экрана 2026-11-10 085846" src="https://github.com/user-attachments/assets/4dda34ef-8f63-4e3c-861e-20eb00dfe656" />
 
-Confirm(id, Текст сообщения, "Текст заголовка", Цвет заголовка)
+Confirm(id, "Текст сообщения", "Текст заголовка", Цвет заголовка)
 ```cpp
  if (b.Confirm(2000, "Алаармааа!", "Внимание!", sets::Colors::Red)) {//
         //if (b.build.value.toBool()) {}
