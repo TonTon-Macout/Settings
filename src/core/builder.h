@@ -104,6 +104,10 @@ class Builder {
     bool beginMenu(Text title) {
         return _beginContainer(Code::menu, title);
     }
+    // Меню с пользовательским ID для веб-интерфейса
+    bool beginMenu(Text title, Text htmlID) {
+        return _beginContainer(Code::menu, title, DivType::Default, htmlID);
+    }
 
     void endMenu() {
         _endContainer();
@@ -1283,7 +1287,7 @@ class Builder {
 
     // ================= CONTAINERS =================
 
-    bool _beginContainer(Code type, Text title = Text(), DivType divtype = DivType::Default) {
+    bool _beginContainer(Code type, Text title = Text(), DivType divtype = DivType::Default, Text htmlID = Text()) {
         if (type == Code::menu) ++_menuID;
 
         if (build.isBuild()) {
@@ -1292,6 +1296,7 @@ class Builder {
 
             if (type == Code::menu) (*p)[Code::id] = _menuID;
             if (title.length()) (*p)[Code::title] = title;
+            if (htmlID.length()) (*p)[Code::html_id] = htmlID;
 
             switch (divtype) {
                 case DivType::Default:
