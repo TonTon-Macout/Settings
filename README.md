@@ -66,6 +66,7 @@
 7. NEW
    - [Таймаут попапа ↓](#popuptout)
    - [Темная тема по-умолчанию ↓](#themedark)
+   - [Confirm - окно с заголовком ↓](#confirm)
 
 <h3 id="tooltip" >✅ Всплывающие подсказки</h3>
 
@@ -310,6 +311,28 @@ div.input_cont > div > span {
 > скопировать получившийся массив в myFont.h
 > 
 
+<h3 id="confirm" >✅ Виджет Confirm теперь можно сделать окном с заголовком</h3>
+
+<img width="477" height="164" alt="Снимок экрана 2026-11-10 140750" src="https://github.com/user-attachments/assets/7182726d-b273-47c9-bf8f-684689beba52" />
+
+Так, выводим обычный классический Confirm 
+```cpp
+ if (b.Confirm(id, "Точно?")) {
+        //if (b.build.value.toBool()) {}
+    }
+```
+
+А так Confirm - окно с заголовком
+
+<img width="533" height="242" alt="Снимок экрана 2026-11-10 085846" src="https://github.com/user-attachments/assets/4dda34ef-8f63-4e3c-861e-20eb00dfe656" />
+
+Confirm(id, "Текст сообщения", "Текст заголовка", Цвет заголовка)
+```cpp
+ if (b.Confirm(2000, "Алаармааа!", "Внимание!", sets::Colors::Red)) {//
+        //if (b.build.value.toBool()) {}
+    }
+```
+
 
 <h3 id="pull" >✅ Принят пуллреквест от [VitaliyAndreevich](https://github.com/GyverLibs/Settings/pull/57) </h3>
 Он добавляет колбеки ота обновления 
@@ -338,6 +361,7 @@ sett.onFileRemove([](Text file_name) {
 > в onUpdateFWProgress смысла нет. рассчитывается не верно.
 > 
 > для отображения обновления по ота имеет смысл использовать `onUpdateFWStart` и `onUpdateFWDone`
+
 
 
 <h3 id="delproject" >✅ Убрано слово проект в информации о проекте </h3>
