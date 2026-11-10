@@ -22,8 +22,8 @@ class GuestAccess {
 
 class BasicContainer {
    public:
-    BasicContainer(Code type, Builder& b, Text title = Text(), DivType divtype = DivType::Default) : b(b) {
-        b._beginContainer(type, title, divtype);
+    BasicContainer(Code type, Builder& b, Text title = Text(), DivType divtype = DivType::Default, Text htmlId = Text()) : b(b) {
+        b._beginContainer(type, title, divtype, htmlId);
     }
     ~BasicContainer() {
         b._endContainer();
@@ -43,6 +43,7 @@ class Group : public BasicContainer {
 class Menu : public BasicContainer {
    public:
     Menu(Builder& b, Text title) : BasicContainer(Code::menu, b, title) {}
+    Menu(Builder& b, Text title, Text htmlId) : BasicContainer(Code::menu, b, title, DivType::Default, htmlId) {}
 };
 
 // контейнер кнопок
