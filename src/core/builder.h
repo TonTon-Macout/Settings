@@ -654,13 +654,20 @@ class Builder {
         return ButtonHold(_next(), label, (uint32_t)color);
     }
 
-    // misc
-    // окно подтверждения, для активации отправь пустой update на его id или update с текстом подтверждения
-    bool Confirm(size_t id, Text label = "", Text title_label = "", bool* ptr = nullptr) {
-        _widget(Code::confirm, id, label, title_label);
-        return _isSet(id, ptr);
-    }
+// Окно подтверждения. Для активации отправь пустой update на его id
+// или update с текстом подтверждения.
+bool Confirm(size_t id,Text label = "",Text title_label = "",uint32_t color = SETS_DEFAULT_COLOR,bool* ptr = nullptr) {
+    _widget(Code::confirm, id, label, title_label, nullptr, color);
+    return _isSet(id, ptr);
+}
 
+bool Confirm(size_t id, Text label, Text title_label, Colors color, bool* ptr = nullptr) {
+    return Confirm(id, label, title_label, (uint32_t)color, ptr);
+}
+
+bool Confirm(size_t id, Text label, Text title_label, bool* ptr) {
+    return Confirm(id, label, title_label, SETS_DEFAULT_COLOR, ptr);
+}
     // ================= CUSTOM =================
     // кастомный виджет, type соответствует имени класса. params - ключи и значения
     bool Custom(Text type, size_t id, const BSON& params = BSON(), AnyPtr value = nullptr) {
