@@ -655,19 +655,17 @@ class Builder {
 
 // Окно подтверждения. Для активации отправь пустой update на его id
 // или update с текстом подтверждения.
-bool Confirm(
-    size_t id,
-    Text label = "",
-    Text title_label = "",
-    sets::Colors color = sets::Colors::Default,
-    bool* ptr = nullptr
-) {
-    _widget(Code::confirm, id, label, title_label, nullptr, (uint32_t)color);
+bool Confirm(size_t id,Text label = "",Text title_label = "",uint32_t color = SETS_DEFAULT_COLOR,bool* ptr = nullptr) {
+    _widget(Code::confirm, id, label, title_label, nullptr, color);
     return _isSet(id, ptr);
 }
 
+bool Confirm(size_t id, Text label, Text title_label, Colors color, bool* ptr = nullptr) {
+    return Confirm(id, label, title_label, (uint32_t)color, ptr);
+}
+
 bool Confirm(size_t id, Text label, Text title_label, bool* ptr) {
-    return Confirm(id, label, title_label, sets::Colors::Default, ptr);
+    return Confirm(id, label, title_label, SETS_DEFAULT_COLOR, ptr);
 }
     // ================= CUSTOM =================
     // кастомный виджет, type соответствует имени класса. params - ключи и значения
