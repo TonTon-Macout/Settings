@@ -81,8 +81,8 @@ class Builder {
 
     // ================= GROUP =================
 
-    bool beginGroup(Text title = Text()) {
-        return _beginContainer(Code::group, title);
+    bool beginGroup(Text title = Text(), Text contClass) {
+        return _beginContainer(Code::group, title, DivType::Default, contClass);
     }
 
     void endGroup() {
@@ -91,8 +91,8 @@ class Builder {
 
     // ================= ROW =================
 
-    bool beginRow(Text title = Text(), DivType divtype = DivType::Default) {
-        return _beginContainer(Code::row, title, divtype);
+    bool beginRow(Text title = Text(), DivType divtype = DivType::Default, Text contClass) {
+        return _beginContainer(Code::row, title, divtype, DivType::Default, contClass);
     }
 
     void endRow() {
@@ -105,8 +105,8 @@ class Builder {
         return _beginContainer(Code::menu, title);
     }
     // Меню с пользовательским ID для веб-интерфейса
-    bool beginMenu(Text title, Text htmlID) {
-        return _beginContainer(Code::menu, title, DivType::Default, htmlID);
+    bool beginMenu(Text title, Text contClass) {
+        return _beginContainer(Code::menu, title, DivType::Default, contClass);
     }
 
     void endMenu() {
@@ -119,8 +119,8 @@ class Builder {
 
     // ================= BUTTONS =================
 
-    bool beginButtons() {
-        return _beginContainer(Code::buttons);
+    bool beginButtons(Text contClass) {
+        return _beginContainer(Code::buttons, Text title = Text(), DivType::Default, contClass);
     }
 
     void endButtons() {
@@ -1287,7 +1287,7 @@ class Builder {
 
     // ================= CONTAINERS =================
 
-    bool _beginContainer(Code type, Text title = Text(), DivType divtype = DivType::Default, Text htmlID = Text()) {
+    bool _beginContainer(Code type, Text title = Text(), DivType divtype = DivType::Default, Text contClass = Text()) {
         if (type == Code::menu) ++_menuID;
 
         if (build.isBuild()) {
@@ -1296,7 +1296,7 @@ class Builder {
 
             if (type == Code::menu) (*p)[Code::id] = _menuID;
             if (title.length()) (*p)[Code::title] = title;
-            if (htmlID.length()) (*p)[Code::html_id] = htmlID;
+            if (contClass.length()) (*p)[Code::cont_class] = contClass;
 
             switch (divtype) {
                 case DivType::Default:
