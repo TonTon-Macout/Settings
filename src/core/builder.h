@@ -81,8 +81,9 @@ class Builder {
 
     // ================= GROUP =================
 
-    bool beginGroup(Text title = Text(), Text contClass) {
-        return _beginContainer(Code::group, title, DivType::Default, contClass);
+    // группа виджетов
+    bool beginGroup(Text title = Text()) {
+        return _beginContainer(Code::group, title);
     }
 
     void endGroup() {
@@ -91,8 +92,9 @@ class Builder {
 
     // ================= ROW =================
 
-    bool beginRow(Text title = Text(), DivType divtype = DivType::Default, Text contClass) {
-        return _beginContainer(Code::row, title, divtype, DivType::Default, contClass);
+    // горизонтальная группа виджетов [DivType::Line | DivType::Block]
+    bool beginRow(Text title = Text(), DivType divtype = DivType::Default) {
+        return _beginContainer(Code::row, title, divtype);
     }
 
     void endRow() {
@@ -101,10 +103,12 @@ class Builder {
 
     // ================= MENU =================
 
+    // вложенное меню
     bool beginMenu(Text title) {
         return _beginContainer(Code::menu, title);
     }
-    // Меню с пользовательским ID для веб-интерфейса
+
+    // меню с указанием класса 
     bool beginMenu(Text title, Text contClass) {
         return _beginContainer(Code::menu, title, DivType::Default, contClass);
     }
@@ -113,14 +117,15 @@ class Builder {
         _endContainer();
     }
 
+     // true если в вебморде открыто текущее меню
     bool enterMenu() {
         return build.type == Build::Type::Menu && build.id == _menuID;
     }
 
     // ================= BUTTONS =================
-
+    // ряд кнопок
     bool beginButtons(Text contClass) {
-        return _beginContainer(Code::buttons, Text title = Text(), DivType::Default, contClass);
+        return _beginContainer(Code::buttons);
     }
 
     void endButtons() {
