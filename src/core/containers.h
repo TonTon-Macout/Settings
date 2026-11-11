@@ -37,7 +37,6 @@ class BasicContainer {
 class Group : public BasicContainer {
    public:
     Group(Builder& b, Text title = Text()) : BasicContainer(Code::group, b, title) {}
-    Group(Builder& b, Text title = Text(), Text contClass) : BasicContainer(Code::group, b, title, DivType::Default, contClass) {}
 };
 
 // контейнер вложенного меню
@@ -51,14 +50,12 @@ class Menu : public BasicContainer {
 class Buttons : public BasicContainer {
    public:
     Buttons(Builder& b) : BasicContainer(Code::buttons, b) {}
-    Buttons(Builder& b, Text contClass) : BasicContainer(Code::buttons, b, Text title = Text(), contClass) {}
 };
 
 // горизонтальный контейнер [DivType::Line | DivType::Block]
 class Row : public BasicContainer {
    public:
     Row(Builder& b, Text title = Text(), DivType divtype = DivType::Default) : BasicContainer(Code::row, b, title, divtype) {}
-    Row(Builder& b, Text title = Text(), DivType divtype = DivType::Default, Text contClass) : BasicContainer(Code::row, b, title, divtype, contClass) {}
 };
 
 }  // namespace sets
