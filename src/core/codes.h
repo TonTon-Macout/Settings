@@ -6,6 +6,7 @@ namespace sets {
 enum class Code : uint8_t {
     id,
     id2,
+    cont_class,
     type,
     content,
     group,

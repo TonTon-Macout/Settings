@@ -17,6 +17,13 @@
 #include "myFont.h"
 #endif
 #endif
+#ifndef CACHE_MYSCRIPT
+#define CACHE_MYSCRIPT false
+#endif
+
+#ifndef CACHE_MYSTYLE
+#define CACHE_MYSTYLE false
+#endif
 
 template <typename server_t, typename client_t>
 class SettingsT : public sets::SettingsBase {
@@ -39,10 +46,10 @@ class SettingsT : public sets::SettingsBase {
 
         server.onRequest([this](ghttp::ServerBase::Request req) {
             switch (req.path().hash()) {
-               
+
                 #ifdef USE_MYFILE
-                case SH("/myscript.js"): server.sendFile_P(myscript, sizeof(myscript)-1, "text/javascript", false);  break;
-                case SH("/mystyle.css"): server.sendFile_P(mystyle, "text/css", false);  break;
+                case SH("/myscript.js"): server.sendFile_P(myscript, sizeof(myscript)-1, "text/javascript", CACHE_MYSCRIPT);  break;
+                case SH("/mystyle.css"): server.sendFile_P(mystyle, "text/css", CACHE_MYSTYLE);  break;
                 #if defined(USE_MYFONT)
                 case SH("/myfont.woff2"):   server.sendFile_P(myfont, sizeof(myfont), "font/woff2", true, false);  break;
                 #endif
